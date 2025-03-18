@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حفظ الرقم</title>
+</head>
+<body>
+    <h1>حفظ الرقم</h1>
+    <input type="number" id="numberInput" placeholder="أدخل رقمًا">
+    <button onclick="saveNumber()">حفظ الرقم</button>
+    <p>الرقم المحفوظ: <span id="savedNumber"></span></p>
+
+    <script>
+        // تحميل الرقم المحفوظ عند فتح الصفحة
+        window.onload = function() {
+            const savedNumber = localStorage.getItem('savedNumber');
+            if (savedNumber) {
+                document.getElementById('savedNumber').textContent = savedNumber;
+            }
+        };
+
+        // حفظ الرقم في LocalStorage
+        function saveNumber() {
+            const number = document.getElementById('numberInput').value;
+            localStorage.setItem('savedNumber', number);
+            document.getElementById('savedNumber').textContent = number;
+        }
+    </script>
+</body>
+</html>
